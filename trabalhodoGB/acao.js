@@ -1,11 +1,17 @@
-numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-h1 = document.querySelector('#h1');
-btn = document.querySelector('#botao');
+var numero = [];
 
-$(btn).redy(function() {
-    jogar()
-});
-
-function jogar(){
+$(document.querySelector('#botao')).click(function(){
     
-}
+    var result = document.querySelector('#result');
+
+    result.innerHTML = numero;
+
+    for (i=0;i < 6; i++){
+        ale = Math.floor(Math.random() * 100) + 1;
+        
+        numero.push(ale);
+        result.innerHTML = "<p>"+numero+"</p>";
+
+    }
+    
+});

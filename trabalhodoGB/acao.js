@@ -1,23 +1,20 @@
 var numero = [];
-var quantidadeNumeros = 6;
-var sorteio = [];
+var historico = [];
 
-$(document.querySelector('#botao')).click(function(){
-    
+$('#botao').click(function(){
+
     var result = document.querySelector('#result');
-
-    result.innerHTML = numero;
-
-    for (i=0;i < 6; i++){
-        while (numero.length < quantidadeNumeros){
-            ale = Math.floor(Math.random() * 100) + 1;
-            if ($.inArray(ale, numero) === -1){
-                numero.push(ale);
-                
-            } 
-        }
-        result.innerHTML = "<p>"+numero+"</p>";
-        
-    }
     
+    do{
+        ale = Math.floor(Math.random() * 100) + 1;
+        if ($.inArray(ale, numero) === -1){
+            numero.push(ale);  
+        }
+    
+    }while(numero.length < 6)
+
+    result.innerHTML += "<p>"+numero+"</p>";
+
+    historico.push(numero);
+    numero = [];
 });
